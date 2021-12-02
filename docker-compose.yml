@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+     MYSQL_USER: root
+     MYSQL_ROOT_PASSWORD: webgroundbreaker
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/mysql-database-connection
+    ports:
+      - 8008:8000
+    command: uvicorn --host 0.0.0.0 --port 8000 app.main:app --reload
+    depends_on:
+      - db
