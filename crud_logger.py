@@ -26,8 +26,8 @@ rotating_h = logging.handlers.RotatingFileHandler('crud_log.log', maxBytes=mb_to
 
 # formatter for handler
 rotating_formatter = logging.Formatter(
-    '%(asctime)s :   %(levelname)s   :%(pathname)s    :   %(filename)s    :   %(lineno)d  :   %(message)s',
-    datefmt='%Y-%m-%dT%H:%M:%S')
+    '%(asctime)s :   Logger Level- %(levelname)s   :    Path- %(pathname)s    :   File Name - %(filename)s    :   Line No- %(lineno)d  :   message-     %(message)s',
+    datefmt='Date- %Y-%m-%d Time- %H:%M:%S')
 # set formatter
 rotating_h.setFormatter(rotating_formatter)
 # add handler
