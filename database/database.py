@@ -10,7 +10,7 @@ SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:webgroundbreaker@localhost:3306/
 #     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
 # )
 engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,)
+    SQLALCHEMY_DATABASE_URL, pool_size=20, max_overflow=0)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
